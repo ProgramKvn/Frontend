@@ -1,0 +1,121 @@
+/*-------------PORTADA------------*/
+
+.sec {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(28, 68, 124, 1);
+    /*#1c447c;*/
+    transition: 0.5s;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.content .textBox {
+    position: relative;
+    max-width: 600px;
+    z-index: 1;
+    padding-left: 30px;
+}
+
+.content .textBox h2 {
+    color: #f1f2f4;
+    font-size: 4em;
+    line-height: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.content .textBox .h2-icon::after {
+    content: '\f058';
+    font-family: fontawesome;
+    padding-left: 20px;
+}
+
+.content .textBox h2 span {
+    font-size: 2em;
+    color: #21abe2;
+}
+
+.content .textBox p {
+    color: #fff;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.content .textBox a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #21abe2;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.img-portada {
+    position: relative;
+    padding: 10px;
+}
+
+@media (max-width: 1640px) {
+    .img-portada {
+        position: absolute;
+    }
+    .img-portada::before {
+        content: '';
+        position: absolute;
+        background: rgba(28, 68, 124, 0.5);
+        width: 60%;
+        height: 100%;
+    }
+    .content {
+        padding: 0 100px;
+        justify-content: center;
+    }
+    .textBox {
+        right: 150px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sec {
+        justify-content: flex-start;
+        flex-direction: column;
+        padding-top: 100px;
+        min-height: 600px;
+    }
+    .content {
+        justify-content: center;
+        width: 100%;
+        padding: 40px 0 40px 0;
+    }
+    .content .textBox h2 {
+        font-size: 3em;
+    }
+    .img-portada {
+        display: none;
+    }
+    .circule {
+        clip-path: none;
+        background: none;
+        width: none;
+    }
+}
+
+
+/*-- FIN PORTADA --*/
