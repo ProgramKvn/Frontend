@@ -3,23 +3,24 @@
     <!--Esta es la Barra de Navegación -->
     <navbar />
     <!--Esta es la Portada -->
-   <Portada />
+    <Portada />
     <!--Esta es la Parte Media -->
-   <MidContent />
-
+    <div id="cursos">
+      <MidContent />
+    </div>
 
     <!--Este es el pie de página -->
-  <PiePagina />
+    <PiePagina />
   </div>
 </template>
 
 <script>
 import navbar from "@/components/Globales/nav";
-import Portada from '@/components/Inicio/Portada';
-import MidContent from '@/components/Inicio/MidContent';
-import PiePagina from '@/components/Globales/footer'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Portada from "@/components/Inicio/Portada";
+import MidContent from "@/components/Inicio/MidContent";
+import PiePagina from "@/components/Globales/footer";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
 
 export default {
   name: "Main",
@@ -27,17 +28,16 @@ export default {
     navbar,
     Portada,
     MidContent,
-    PiePagina
+    PiePagina,
   },
-  data(){
-    return{
-    }
-  }
+  data() {
+    return {};
+  },
 };
 </script>
 
 <style>
-jumbotron{
+jumbotron {
   background: #1c447c;
 }
 </style>

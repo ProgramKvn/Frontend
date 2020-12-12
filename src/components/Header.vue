@@ -47,18 +47,6 @@ export default {
   data() {
     return {
       msg: "Curso de HTML5",
-      temasCurso: [
-        { tema: "¿Que es HTML?" },
-        { tema: "¿Estructura básica de HTML?" },
-        { tema: "Creando tu primer Hello World con HTML" },
-        { tema: "Uso de la etiqueta <p>" },
-        { tema: "Uso de Cabeceras HTML" },
-        { tema: "Uso de la etiqueta de imagen <img>" },
-        { tema: "Uso de la etiqueta de <a>" },
-        { tema: "Uso de las etiquetas <ol> y <ul>" },
-        { tema: "Uso de la etiqueta <div>" },
-        { tema: "Uso de la etiqueta <footer>" },
-      ],
       images: [
         {
           src: "https://i.imgur.com/7mkgmSk.png",

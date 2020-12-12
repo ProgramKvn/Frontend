@@ -3,32 +3,47 @@
     <div class="title">
       <h1>Cursos recomendados para iniciar</h1>
     </div>
-    <div id="Cursos">
-      <div class="card-container">
-        <div class="card">
-          <div class="box">
-            <div class="box-content">
-              <h3 class="html">HTML</h3>
-              <i class="fab fa-html5"></i>
-              <p>
-                HTML es un lenguaje de marcado que se utiliza para el desarrollo
-                de páginas de Internet.
-              </p>
-              <router-link to="/header">Ver mas</router-link>
-            </div>
+    <div class="card-container">
+      <div class="card">
+        <div class="box">
+          <div class="box-content">
+            <h3 class="html">HTML</h3>
+            <i class="fab fa-html5"></i>
+            <p>
+              HTML es un lenguaje de marcado que se utiliza para el desarrollo
+              de páginas de Internet.
+            </p>
+            <router-link to="/header">Ver mas</router-link>
           </div>
         </div>
+      </div>
+      <div class="card">
+        <div class="box">
+          <div class="box-content">
+            <h3 class="css">CSS</h3>
+            <i class="fab fa-css3-alt"></i>
+            <p>
+              Es un lenguaje de hojas de estilos creado para controlar el
+              aspecto o presentación de los documentos electrónicos definidos
+              con HTML y XHTML.
+            </p>
+            <router-link to="/topicscss">Ver mas</router-link>
+          </div>
+        </div>
+      </div>
+      <div v-for="Cursos in curso" :key="Cursos._id">
         <div class="card">
           <div class="box">
             <div class="box-content">
-              <h3 class="css">CSS</h3>
-              <i class="fab fa-css3-alt"></i>
+              <h3 class="html">{{ Cursos.NombreCurso }}</h3>
+              <i :style="Cursos.Color" :class="Cursos.Logo"></i>
               <p>
-                Es un lenguaje de hojas de estilos creado para controlar el
-                aspecto o presentación de los documentos electrónicos definidos
-                con HTML y XHTML.
+                {{ Cursos.DescripciónCurso }}
               </p>
-              <router-link to="/topicscss">Ver mas</router-link>
+              <router-link
+                :to="{ name: 'Pagina_Curso', params: { id: Cursos._id } }"
+                >Ver mas</router-link
+              >
             </div>
           </div>
         </div>
@@ -82,7 +97,19 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      curso: [],
+    };
+  },
+  async mounted() {
+    const respuesta = await axios.get("/api/curso/");
+    this.curso = respuesta.data;
+  },
+};
 </script>
 
 <style scoped lang="css" src="../../../public/css/Inicio/Cards.css">

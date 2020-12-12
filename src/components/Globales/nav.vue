@@ -3,10 +3,16 @@
     <a href=""><img src="@/assets/logo3.png" class="logo" /></a>
     <i class="fas fa-bars" @click="menuToggle"></i>
     <ul class="nav">
-        <li><router-link to='/'>Inicio</router-link></li>
-      <b-nav-item>
-        <li><a href="#Cursos">Cursos</a></li></b-nav-item
-      >
+      <li>
+        <b-nav-item href="#cursos">Cursos</b-nav-item>
+      </li>
+      <li v-if="Mostrar">
+        <b-nav-item
+          ><router-link to="/crear_curso"
+            >Crear nuevo curso</router-link
+          ></b-nav-item
+        >
+      </li>
       <b-nav-item>
         <li>
           <router-link :to="{ name: 'Contacto', params: { id: Usuario._id } }">
@@ -38,12 +44,20 @@
 
 <script>
 import VueJwtDecode from "vue-jwt-decode";
+import axios from 'axios';
 
 export default {
   data() {
     return {
       MostrarLinks: true,
       Usuario: [],
+      NuevosDatos: {
+        Nombre_Completo: "",
+        Nombre_Usuario: "",
+        Correo_Electrónico: "",
+        Contraseña: "",
+      },
+      Mostrar: null
     };
   },
   methods: {
@@ -72,6 +86,15 @@ export default {
   created() {
     this.getUserDetails();
   },
+  async mounted() {
+    const respuesta = await axios.get('/api/usuario/' + this.Usuario._id);
+    this.NuevosDatos = respuesta.data;
+    if(this.NuevosDatos.Rol == 'Alumno'){
+      this.Mostrar = false
+    }else if(this.NuevosDatos.Rol == 'Maestro'){
+      this.Mostrar = true;
+    }
+  }
 };
 </script>
 
